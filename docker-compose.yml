@@ -30,6 +30,8 @@ services:
       - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: rekrutacja
+      MYSQL_PASSWORD: rekrutacja
       MYSQL_DATABASE: things
 
   cron:
