@@ -13,8 +13,13 @@ class Thing
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $name = null;
+    #[ORM\Column(length: 255, unique: true, nullable: false)]
+    private ?string $name;
+
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
 
     public function getId(): ?int
     {

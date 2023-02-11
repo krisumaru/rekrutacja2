@@ -1,0 +1,7 @@
+### Add product to catalog
+
+POST http://localhost/thing
+Content-Type: application/x-www-form-urlencoded
+
+name=New Thing
+
