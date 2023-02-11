@@ -18,8 +18,6 @@ services:
       - '.:/app'
     restart: on-failure
 #    environment:
-#      - 'COMPOSER_HOME=/tmp/composer'
-#      - 'COMPOSER_ALLOW_SUPERUSER=1'
 #      - 'XDEBUG_MODE=develop,debug'
     depends_on:
       - database
@@ -34,5 +32,12 @@ services:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: things
 
+  cron:
+    image: alpine:latest
+    command: "crond -f -l 0 -L /dev/stdout"
+    volumes:
+      - './docker/crontab/crontab:/var/spool/cron/crontabs/root:rwx'
+
 volumes:
   db-data:
+
