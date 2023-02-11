@@ -5,3 +5,6 @@ Content-Type: application/x-www-form-urlencoded
 
 name=New Thing
 
+### List things
+
+GET http://localhost/things
