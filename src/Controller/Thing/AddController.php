@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Controller\Thing;
 
 use App\Entity\Thing;
@@ -10,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-#[Route(path: '/thing', name: 'add-thing', methods: ['POST', 'GET'])]
+#[Route(path: '/thing', name: 'add-thing', methods: ['POST'])]
 class AddController extends AbstractController
 {
     public function __construct(
@@ -37,7 +39,7 @@ class AddController extends AbstractController
         }
 
         $thing = new Thing($name);
-        $this->repository->save($thing);
+        $this->repository->save($thing, true);
 
         return new JsonResponse(
             ['message' => 'Created'],
