@@ -8,3 +8,8 @@ name=New Thing
 ### List things
 
 GET http://localhost/things
+
+
+### Delete thing
+
+DELETE http://localhost/thing/1
